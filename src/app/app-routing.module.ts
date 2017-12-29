@@ -10,6 +10,7 @@ import { LogoutComponent } from './authentication/logout-component/logout.compon
 // Guards
 import { AuthGuard } from './guards/auth.guard.service';
 import { CategoryComponent } from './components/category/category.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes : Routes = [
   { path: 'register', component: RegisterFormComponent },
   { path: 'category', component: CategoryComponent },  
   { path: 'login', component: LoginFormComponent },
-  { path: 'logout', component: LogoutComponent }
+  { path: 'logout', component: LogoutComponent },
+  {path: 'contacts', component: ContactsComponent}
 ]
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

@@ -21,6 +21,7 @@ import { MessageService } from './core/services/message.service';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   //  CategoryModel,  
     MessagesComponent,
   ProductsComponent,
-  NavbarComponent,  
+  NavbarComponent,
+  ContactsComponent,  
   ],
   imports: [
     BrowserModule,
