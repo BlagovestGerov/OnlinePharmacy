@@ -20,6 +20,7 @@ import { CategoryService } from './core/services/category-service';
 import { MessageService } from './core/services/message.service';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ProductsComponent } from './components/products/products.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProductsComponent } from './components/products/products.component';
     CategoryComponent,
   //  CategoryModel,  
     MessagesComponent,
-  ProductsComponent,  
+  ProductsComponent,
+  NavbarComponent,  
   ],
   imports: [
     BrowserModule,

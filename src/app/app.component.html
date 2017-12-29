@@ -4,21 +4,8 @@
   <h1>
     {{title}}
   </h1>
-
-  <nav>
-    <div *ngIf="!authService.isLoggedIn()">
-  <a routerLink="/category">Category</a>                  
-        <a routerLink="/login">Login</a>
-        <a routerLink="/register">Register</a>
-    </div>
-    <div *ngIf="authService.isLoggedIn()">
-        <a routerLink="/category">Category</a>                          
-      <a routerLink="/home">Home</a>
-      <a routerLink="/logout">Logout</a>
-    </div>
-
-  </nav>
-
+  
+<app-navbar></app-navbar>
   <div id="content">
     <router-outlet></router-outlet>
   </div>
