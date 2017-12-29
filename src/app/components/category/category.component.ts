@@ -7,6 +7,10 @@ import {
 import { CategoryModel } from '../../core/models/view-models/category';
 import { CategoryService } from '../../core/services/category-service';
 
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -27,6 +31,7 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
+    private location : Location
   ) { 
     this.model = new CategoryModel("", "");
   }
@@ -63,6 +68,7 @@ export class CategoryComponent implements OnInit {
     this.addCategorySuccess = true;
     this.titleCategory = data['title'];
     this.idCategory = data['id'];
+    location.reload();
   }
 
 
@@ -76,19 +82,20 @@ export class CategoryComponent implements OnInit {
       //   }
       // );
       // this.categories = this.categories.filter(h => h !== this.model);
-      this.categoryService.deleteCategory(targetId).subscribe();
+      // location.reload();            
+      this.categoryService.deleteCategory(targetId)
+      .subscribe(
+        data => {
+          this.successfullDeleteCategory(data);
+        },
+        err => {
+          this.addCategoryFail = true;
+        }
+      )
     }
 
-    successfullDeleteCategory(category) : void {
-      // var index = this.categories.indexOf(category)
-      // this.categories.splice(index, 1);
-      // this.categories = this.categories.filter(h => h !== CategoryModel);  
-        // this.deleteCategorySuccess = true;
-        // this.category = this.category.filter(el => Number(el.id) !== Number(targetId));
-        // this.selectedCategory = {};
-        // this.titleCategory = category['title'];
-        // this.idCategory = category['id'];
-        // this.registeredUser = categories['username'];    
+    successfullDeleteCategory(data) : void {
+      location.reload();
         
       }
       
