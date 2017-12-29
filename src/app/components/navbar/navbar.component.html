@@ -15,7 +15,9 @@
   </nav> -->
 
 
-  <nav class="navbar navbar-default" role="navigation">
+  <nav 
+  class="list-group-item list-group-item-action list-group-item-success"
+  class="navbar navbar-default" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div 
     *ngIf="!authService.isLoggedIn()"
@@ -35,18 +37,15 @@
     <div 
     *ngIf="authService.isLoggedIn()"
     class="navbar-header">
-      <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+
       <a class="navbar-brand"routerLink="/category">Категории</a>    
 
       <a class="navbar-brand" routerLink="/home">Начална страница</a>  
+      <a class="navbar-brand" routerLink="/contacts">Контакти</a>              
       <a class="navbar-brand" routerLink="/logout">Изход</a>
     
     </div>
+    
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" collapse="navbarCollapsed">

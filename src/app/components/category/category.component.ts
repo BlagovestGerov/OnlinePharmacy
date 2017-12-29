@@ -72,17 +72,7 @@ export class CategoryComponent implements OnInit {
   }
 
 
-      deleteCategory (targetId): void{
-      // this.categoryService.deleteCategory(this.model)
-      // this.categories = this.categories.findById(category.id).filter(h => h !== category);
-      // this.categoryService.deleteCategory(this.model)
-      // .subscribe(
-      //   data => {
-      //     this.successfullAddCategory(data);
-      //   }
-      // );
-      // this.categories = this.categories.filter(h => h !== this.model);
-      // location.reload();            
+      deleteCategory (targetId): void{           
       this.categoryService.deleteCategory(targetId)
       .subscribe(
         data => {

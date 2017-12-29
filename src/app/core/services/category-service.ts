@@ -110,9 +110,9 @@ export class CategoryService {
     // }
 
   /** Log a HeroService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add('CategoryService: ' + message);
-  }
+  // private log(message: string) {
+  //   this.messageService.add('CategoryService: ' + message);
+  // }
 
   private createAuthHeaders(type : string) : HttpHeaders {
     if (type === 'Basic') {
