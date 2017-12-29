@@ -22,6 +22,8 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserService } from './core/services/user.service';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     MessagesComponent,
   ProductsComponent,
   NavbarComponent,
-  ContactsComponent,  
+  ContactsComponent,
+  UsersComponent,  
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     AuthGuard,
     CategoryService,
     MessageService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

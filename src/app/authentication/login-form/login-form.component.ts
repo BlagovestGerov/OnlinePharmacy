@@ -12,6 +12,9 @@ export class LoginFormComponent {
   public model : LoginModel;
   public loginFail : boolean;
   public username : string;
+  public lastName : string;
+  public firstName : string;
+  
 
   constructor(
     private authService : AuthenticationService,
@@ -41,6 +44,8 @@ export class LoginFormComponent {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
     localStorage.setItem('username', data['username']);
+    localStorage.setItem('firstName', data['firstName']);
+    localStorage.setItem('lastName', data['lastName']);
     this.loginFail = false;
     this.router.navigate(['/home']);
   }
