@@ -1,6 +1,4 @@
  <!-- List of categories -->
-
- 
 <div class="container">
   <div class="row">
     <div class="col-sm-4">
@@ -14,12 +12,12 @@
               class="list-group-item list-group-item-action list-group-item-success"
               *ngFor="let category of categories">
                   <span class="pull-left">{{category.id}}</span> {{category.title | uppercase}}
-                  <span class="pull-right">
+                  <!-- <span class="pull-right">
                 <button 
                   class="delete" title="delete category"
                   (click)="deleteCategory(category._id)">
                 x
-                </button></span>
+                </button></span> -->
               </li>
                 
           </ul>
@@ -27,13 +25,13 @@
         </div> 
               <div class="col-sm-8">               
                   <app-products></app-products>                
-            </div>
+              </div>
             
     </div>
   
 
  <!-- Добавяне на категория -->
-<div class="container">
+<!-- <div class="container">
     <h1>Добавяне на категория</h1>
     <form (ngSubmit)="addCategory()" #categoryForm="ngForm">
       <div class="form-group">
@@ -68,4 +66,4 @@
     Категорията съществува вече!
 </div>
 </div>
-
+ -->

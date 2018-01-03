@@ -4,8 +4,12 @@ import {
   Input,
   Output,
   EventEmitter } from '@angular/core';
+  
 import { CategoryModel } from '../../core/models/view-models/category';
+
 import { CategoryService } from '../../core/services/category-service';
+import { AuthenticationService } from '../../authentication/auth.service';
+
 
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -25,15 +29,18 @@ export class CategoryComponent implements OnInit {
   public addCategorySuccess : boolean;
   public deleteCategorySuccess : boolean;
   public addCategoryFail : boolean;
+  public roleId : string;
   // public registeredUser: string;
 
  categories: CategoryModel;
 
   constructor(
     private categoryService: CategoryService,
+    private authService : AuthenticationService,
     private location : Location
   ) { 
     this.model = new CategoryModel("", "");
+    this.roleId = localStorage.getItem('data._kmd.roles[0].roleId');
   }
 
   ngOnInit() {
@@ -84,10 +91,11 @@ export class CategoryComponent implements OnInit {
       )
     }
 
+   
     successfullDeleteCategory(data) : void {
-      location.reload();
-        
-      }
+  // console.log(this.roleId)
+  
+    }
       
   
 

@@ -14,6 +14,8 @@ export class LoginFormComponent {
   public username : string;
   public lastName : string;
   public firstName : string;
+  public roleId : string;
+  public userRole: string;
   
 
   constructor(
@@ -22,6 +24,7 @@ export class LoginFormComponent {
   ) {
     this.model = new LoginModel("", "");
     this.username = "";
+    this.roleId = "";
   }
 
   login () : void {
@@ -40,6 +43,8 @@ export class LoginFormComponent {
     return JSON.stringify(this.model);
   }
 
+
+  
   successfulLogin(data) : void {
     this.authService.authtoken = data['_kmd']['authtoken'];
     localStorage.setItem('authtoken', data['_kmd']['authtoken']);
@@ -48,5 +53,16 @@ export class LoginFormComponent {
     localStorage.setItem('lastName', data['lastName']);
     this.loginFail = false;
     this.router.navigate(['/home']);
+
+    if(data._kmd.roles){
+    this.roleId = data._kmd.roles[0].roleId; 
+    localStorage.setItem('roleId', this.roleId );
+    localStorage.setItem('userRole', 'admin');
+    console.log(this.roleId)  
+      console.log('is admin')
+    }else{
+    localStorage.setItem('userRole', 'user');    
+      console.log('is user, not admin')
+    }    
   }
 }

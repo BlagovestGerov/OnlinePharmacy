@@ -41,7 +41,9 @@
 
       <a class="navbar-brand" routerLink="/home">Начална страница</a>
       <a class="navbar-brand" routerLink="/profile">Профил</a>                    
-      <a class="navbar-brand" routerLink="/contacts">Контакти</a>              
+      <a 
+      *ngIf="authService.isAdmin()"
+      class="navbar-brand" routerLink="/contacts">Контакти</a>         
       <a class="navbar-brand" routerLink="/logout">Изход</a>
     
     </div>

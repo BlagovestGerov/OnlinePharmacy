@@ -6,6 +6,7 @@ import { AuthenticationModule } from './authentication/auth.module';
 import { AppRoutesModule } from './app-routing.module';
 import { AlertModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ImageUploadModule } from "angular2-image-upload";
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserService } from './core/services/user.service';
+import { AdminComponent } from './components/admin/admin.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 
 @NgModule({
@@ -36,14 +39,17 @@ import { UserService } from './core/services/user.service';
   ProductsComponent,
   NavbarComponent,
   ContactsComponent,
-  UsersComponent,  
+  UsersComponent,
+  AdminComponent,
+  UserListComponent,  
   ],
   imports: [
     BrowserModule,
     AuthenticationModule,
     AppRoutesModule,
     FormsModule,
-    AlertModule.forRoot()    
+    AlertModule.forRoot(),
+    ImageUploadModule.forRoot(),   
   ],
   providers: [
     AuthGuard,

@@ -15,6 +15,7 @@ const logoutUrl = `https://baas.kinvey.com/user/${appKey}/_logout`
 @Injectable()
 export class AuthenticationService {
   private currentAuthtoken : string;
+  private currentAdmin : string;
 
   constructor(
     private http : HttpClient
@@ -49,10 +50,9 @@ export class AuthenticationService {
       }
     )
   }
-
+  
   isLoggedIn() {
     let authtoken : string = localStorage.getItem('authtoken');
-
     return authtoken === this.currentAuthtoken;
   }
 
@@ -63,6 +63,31 @@ export class AuthenticationService {
   set authtoken(value : string) {
     this.currentAuthtoken = value;
   }
+
+  isAdmin(){
+     if(localStorage.getItem('userRole')==='admin'){
+       return true
+     }else{
+       return false
+     }
+  }
+
+  // isRoleAdmin(){
+    // if (localStorage.getItem("isAdmin") !== null) {
+    //   let isAdmin : string = localStorage.getItem('isAdmin');
+    // }else if(localStorage.getItem("isUser") !==null){
+    //   let isUser : string = localStorage.getItem('isUser');
+    // }
+  // }
+
+  // get isAdmin() {
+  //   return this.currentAdmin;
+  // }
+
+  // set isAdmin(value : string) {
+  //   this.currentAdmin = value;
+  // }
+  
 
   private createAuthHeaders(type : string) : HttpHeaders {
     if (type === 'Basic') {

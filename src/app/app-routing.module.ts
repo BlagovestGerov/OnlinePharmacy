@@ -22,7 +22,7 @@ const routes : Routes = [
   { path: 'login', component: LoginFormComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'contacts', component: ContactsComponent},
-  {path: 'profile', component: UsersComponent}  
+  {path: 'profile', canActivate: [ AuthGuard ], component: UsersComponent}  
 ]
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

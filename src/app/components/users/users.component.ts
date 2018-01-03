@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/services/user.service';
 import { UserModel } from '../../core/models/view-models/user';
+import { AuthenticationService } from '../../authentication/auth.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { UserModel } from '../../core/models/view-models/user';
 })
 export class UsersComponent implements OnInit {
 
-  // public model : UserModel;
+  public model : UserModel;
   public username : string;
   public firstName : string;
   public lastName : string;
@@ -20,33 +21,30 @@ export class UsersComponent implements OnInit {
   
 
   constructor(
-    // private userService: UserService,
+    private authService : AuthenticationService,
+    private userService : UserService
   ) { 
-    // this.model = new UserModel("","","");
+    this.model = new UserModel("","","");
     this.username = localStorage.getItem('username');
     this.firstName = localStorage.getItem('firstName');
     this.lastName = localStorage.getItem('lastName');
   }
 
   ngOnInit() {
-    // this.getUsers();
+    this.getUsers();
   }
 
-//   getUsers(): void{
-//     this.userService.getUsers(this.model)
-//     .subscribe(
-//       data => {
-//         this.successfulLogin(data);
-//       },
-//     )
-//  }
+  getUsers(): void{
+    this.userService.getUsers(this.model)
+    .subscribe(users => this.users = users);
+ }
 
-//  get diagnostics() : string {
-//   return JSON.stringify(this.model);
-// }
+ get diagnostics() : string {
+  return JSON.stringify(this.model);
+}
 
-// successfulLogin(data) : void {
-  // users => this.users = users
+// successfullGetUsers(data) : void {
+//   users => this.users = users
 
   // localStorage.setItem('username', data['username']);
   // localStorage.setItem('firstName', data['firstName']);
