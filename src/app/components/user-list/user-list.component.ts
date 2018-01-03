@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit {
 
 
   public model : UserModel;
+  public deleteUserFail : boolean;
   
   users: UserModel;
 
@@ -31,4 +32,21 @@ export class UserListComponent implements OnInit {
     this.userService.getUsers(this.model)
     .subscribe(users => this.users = users);
  }
+
+ deleteUser (targetId): void{           
+      this.userService.deleteUser(targetId)
+      .subscribe(
+        data => {
+          this.successfullDeleteUser(data);
+        },
+        err => {
+          this.deleteUserFail = true;
+        }
+      )
+    }
+
+   
+    successfullDeleteUser(data) : void {
+      this.users = this.users.filter(h => h !== this.model);
+  }
 }

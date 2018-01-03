@@ -27,6 +27,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UserService } from './core/services/user.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
   ContactsComponent,
   UsersComponent,
   AdminComponent,
-  UserListComponent,  
+  UserListComponent,
+  FooterComponent,  
   ],
   imports: [
     BrowserModule,

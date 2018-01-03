@@ -11,7 +11,7 @@ export class AdminComponent implements OnInit {
 
 
   public model : CategoryModel;
-  public deleteCategorySuccess : boolean;
+  // public deleteCategorySuccess : boolean;
   public deleteCategoryFail : boolean;
   public titleCategory : string;
   public idCategory : string; 

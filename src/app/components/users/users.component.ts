@@ -39,24 +39,6 @@ export class UsersComponent implements OnInit {
     .subscribe(users => this.users = users);
  }
 
- get diagnostics() : string {
-  return JSON.stringify(this.model);
-}
 
-// successfullGetUsers(data) : void {
-//   users => this.users = users
-
-  // localStorage.setItem('username', data['username']);
-  // localStorage.setItem('firstName', data['firstName']);
-  // localStorage.setItem('lastName', data['lastName']);
-  
-  // this.authService.authtoken = data['_kmd']['authtoken'];
-  // localStorage.setItem('authtoken', data['_kmd']['authtoken']);
-  // localStorage.setItem('username', data['username']);
-  // localStorage.setItem('firstName', data['firstName']);
-  // localStorage.setItem('lastName', data['lastName']);  
-  // this.loginFail = false;
-  // this.router.navigate(['/home']);
-// }
 
 }

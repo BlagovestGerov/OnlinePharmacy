@@ -4,11 +4,10 @@ import {
   Input,
   Output,
   EventEmitter } from '@angular/core';
-  
+
 import { CategoryModel } from '../../core/models/view-models/category';
 
 import { CategoryService } from '../../core/services/category-service';
-import { AuthenticationService } from '../../authentication/auth.service';
 
 
 import { Router } from '@angular/router';
@@ -24,23 +23,23 @@ export class CategoryComponent implements OnInit {
 
 
   public model : CategoryModel;
-  public titleCategory : string;
-  public idCategory : string;  
-  public addCategorySuccess : boolean;
-  public deleteCategorySuccess : boolean;
-  public addCategoryFail : boolean;
-  public roleId : string;
+  // public titleCategory : string;
+  // public idCategory : string;  
+  // public addCategorySuccess : boolean;
+  // public deleteCategorySuccess : boolean;
+  // public addCategoryFail : boolean;
+  // public deleteCategoryFail : boolean;  
+  // public roleId : string;
   // public registeredUser: string;
 
  categories: CategoryModel;
 
   constructor(
     private categoryService: CategoryService,
-    private authService : AuthenticationService,
     private location : Location
   ) { 
     this.model = new CategoryModel("", "");
-    this.roleId = localStorage.getItem('data._kmd.roles[0].roleId');
+    // this.roleId = localStorage.getItem('data._kmd.roles[0].roleId');
   }
 
   ngOnInit() {
@@ -55,47 +54,47 @@ export class CategoryComponent implements OnInit {
     
  }
 
-  addCategory() : void {
-    this.categoryService.addCategory(this.model)
-      .subscribe(
-        data => {
-          this.successfullAddCategory(data);
-        },
-        err => {
-          this.addCategoryFail = true;
-        }
-      )
-  }
+  // addCategory() : void {
+  //   this.categoryService.addCategory(this.model)
+  //     .subscribe(
+  //       data => {
+  //         this.successfullAddCategory(data);
+  //       },
+  //       err => {
+  //         this.addCategoryFail = true;
+  //       }
+  //     )
+  // }
 
-  get diagnostics() : string {
-    return JSON.stringify(this.model);
-  }
+  // get diagnostics() : string {
+  //   return JSON.stringify(this.model);
+  // }
 
-  successfullAddCategory(data) : void {
-    this.addCategorySuccess = true;
-    this.titleCategory = data['title'];
-    this.idCategory = data['id'];
-    location.reload();
-  }
+  // successfullAddCategory(data) : void {
+  //   this.addCategorySuccess = true;
+  //   this.titleCategory = data['title'];
+  //   this.idCategory = data['id'];
+  //   location.reload();
+  // }
 
 
-      deleteCategory (targetId): void{           
-      this.categoryService.deleteCategory(targetId)
-      .subscribe(
-        data => {
-          this.successfullDeleteCategory(data);
-        },
-        err => {
-          this.addCategoryFail = true;
-        }
-      )
-    }
+  //     deleteCategory (targetId): void{           
+  //     this.categoryService.deleteCategory(targetId)
+  //     .subscribe(
+  //       data => {
+  //         this.successfullDeleteCategory(data);
+  //       },
+  //       err => {
+  //         this.deleteCategoryFail = true;
+  //       }
+  //     )
+  //   }
 
    
-    successfullDeleteCategory(data) : void {
+  //   successfullDeleteCategory(data) : void {
   // console.log(this.roleId)
   
-    }
+    // }
       
   
 

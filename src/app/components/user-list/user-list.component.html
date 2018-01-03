@@ -1,3 +1,5 @@
+{{users|json}}
+
 <div class="container">
     
     <div class="row">
@@ -12,12 +14,12 @@
                   class="list-group-item list-group-item-action list-group-item-success"
                   *ngFor="let user of users">
                       <span class="pull-left">{{user.username}}</span> {{user.firstName | uppercase}}  {{user.lastName | uppercase}}
-                      <!-- <span class="pull-right">
+                      <span class="pull-right">
                     <button 
-                      class="delete" title="delete category"
-                      (click)="deleteCategory(category._id)">
+                      class="delete" title="delete user"
+                      (click)="deleteUser(user._id)">
                     x
-                    </button></span> -->
+                    </button></span>
                   </li>
                     
               </ul>
