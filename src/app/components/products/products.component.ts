@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import {ProductModel } from '../../core/models/view-models/product';
+
+import { ProductService } from '../../core/services/product-service';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  public model : ProductModel;
+  products : ProductModel;
+
+  constructor(
+    private productService : ProductService
+  ) { 
+    this.model = new ProductModel("", "", "")
+  }
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  getProducts():void{
+    this.productService.getAllProducts(this.model)
+    .subscribe(products => this.products = products);
   }
 
 }
+
+
+
+
+
+

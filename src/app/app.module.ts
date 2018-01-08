@@ -11,23 +11,27 @@ import { ImageUploadModule } from "angular2-image-upload";
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-// import { CategoryModel } from './core/models/view-models/category';
-
-
-// Services
-import { AuthGuard } from './guards/auth.guard.service';
 import { CategoryComponent } from './components/category/category.component';
-import { CategoryService } from './core/services/category-service';
-import { MessageService } from './core/services/message.service';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { UsersComponent } from './components/users/users.component';
-import { UserService } from './core/services/user.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CategoryListComponent } from './components/category-list/category-list.component';
+// import { CategoryModel } from './core/models/view-models/category';
+
+
+// Services
+import { AuthGuard } from './guards/auth.guard.service';
+import { CategoryService } from './core/services/category-service';
+import { MessageService } from './core/services/message.service';
+import { ProductService } from './core/services/product-service';
+import { UserService } from './core/services/user.service';
+
+
 
 
 @NgModule({
@@ -43,7 +47,8 @@ import { FooterComponent } from './components/footer/footer.component';
   UsersComponent,
   AdminComponent,
   UserListComponent,
-  FooterComponent,  
+  FooterComponent,
+  CategoryListComponent,  
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,7 @@ import { FooterComponent } from './components/footer/footer.component';
   providers: [
     AuthGuard,
     CategoryService,
+    ProductService,
     MessageService,
     UserService
   ],

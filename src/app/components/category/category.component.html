@@ -1,32 +1,13 @@
  <!-- List of categories -->
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
-
-      <div class="single category">
-        <h3  class="list-group"
-        class="list-group-item list-group-item-action"
-        >Категории</h3>
-          <ul class="list-group">
-              <li 
-              class="list-group-item list-group-item-action list-group-item-success"
-              *ngFor="let category of categories">
-                  <span class="pull-left">{{category.id}}</span> {{category.title | uppercase}}
-                  <!-- <span class="pull-right">
-                <button 
-                  class="delete" title="delete category"
-                  (click)="deleteCategory(category._id)">
-                x
-                </button></span> -->
-              </li>
-                
-          </ul>
-        </div>  
-        </div> 
-              <div class="col-sm-8">               
-                  <app-products></app-products>                
-              </div>
-            
+            <div class="col-sm-4">
+              <app-category-list></app-category-list>
+            </div> 
+    
+            <div class="col-sm-8">               
+                <app-products></app-products>                
+            </div>
     </div>
   
 
