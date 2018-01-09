@@ -30,6 +30,7 @@ import { CategoryService } from './core/services/category-service';
 import { MessageService } from './core/services/message.service';
 import { ProductService } from './core/services/product-service';
 import { UserService } from './core/services/user.service';
+import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 
 
 
@@ -48,7 +49,8 @@ import { UserService } from './core/services/user.service';
   AdminComponent,
   UserListComponent,
   FooterComponent,
-  CategoryListComponent,  
+  CategoryListComponent,
+  CategoryDetailsComponent,  
   ],
   imports: [
     BrowserModule,

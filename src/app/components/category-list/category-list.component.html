@@ -5,10 +5,11 @@
     <ul class="list-group">
         <li 
         class="list-group-item list-group-item-action list-group-item-success"
-        *ngFor="let category of categories">
+        *ngFor="let category of categories"
+        routerLink="/category/{{category._id}}">
             <span class="pull-left">{{category.id}}</span> {{category.title | uppercase}}
-         
         </li>
-          
     </ul>
   </div>  
+
+  

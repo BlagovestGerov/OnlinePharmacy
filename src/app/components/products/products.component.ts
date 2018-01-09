@@ -12,6 +12,7 @@ import { ProductService } from '../../core/services/product-service';
 export class ProductsComponent implements OnInit {
 
   public model : ProductModel;
+  
   products : ProductModel;
 
   constructor(
@@ -30,8 +31,6 @@ export class ProductsComponent implements OnInit {
   }
 
 }
-
-
 
 
 

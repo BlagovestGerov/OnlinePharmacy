@@ -24,8 +24,11 @@
                   
             </ul>
           </div>  
+          <div *ngIf="deleteCategorySuccess" class="alert alert-success">
+              Успешно изтриване на категорията!
+          </div>
           <div *ngIf="deleteCategoryFail" class="alert alert-danger">
-              Failed Delete Category!
+              Неуспешно изтриване на категорията!
           </div>
           </div> 
                 <div class="col-sm-8">               

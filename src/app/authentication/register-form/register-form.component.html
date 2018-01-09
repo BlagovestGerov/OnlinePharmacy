@@ -1,62 +1,62 @@
-{{model | json}}
+<!-- {{model | json}} -->
 <div class="container">
-  <h1>Register Form</h1>
+  <h1>Регистрационна форма</h1>
   <form (ngSubmit)="register()" #registerForm="ngForm">
     <div class="form-group">
-      <label for="username">Username</label>
+      <label for="username">Потребителско име</label>
       <input type="text" class="form-control" id="username" 
       required
       [(ngModel)]="model.username"
       name="username"
       #username="ngModel">
       <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
-        Username is required!
+        Потребителското име е задължително!
       </div>
     </div>
 
 
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">Парола</label>
       <input type="password" class="form-control" id="password" 
       required
       [(ngModel)]="model.password"
       name="password"
       #password="ngModel">
       <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
-        Password is required!
+        Паролата е задължителна!
       </div>
     </div>
 
     <div class="form-group">
-      <label for="firstName">First Name</label>
+      <label for="firstName">Име</label>
       <input type="text" class="form-control" id="firstName" 
       required
       [(ngModel)]="model.firstName"
       name="firstName"
       #firstName="ngModel">
       <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
-        First Name is required!
+        Името е задължително!
       </div>
     </div>
 
     <div class="form-group">
-      <label for="lastName">Last Name</label>
+      <label for="lastName">Фамилия</label>
       <input type="text" class="form-control" id="lastName" 
       required
       [(ngModel)]="model.lastName"
       name="lastName"
       #lastName="ngModel">
       <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
-        Last Name is required!
+        Фамилията е задължителна!
       </div>
     </div>
 
     <button [disabled]="!registerForm.form.valid" type="submit" class="btn btn-success">Submit</button>    
   </form>
   <div *ngIf="registerSuccess" class="alert alert-success">
-    Successfull Registered {{registeredUser}}!
+    Успешна регистрация {{registeredUser}}!
   </div>
   <div *ngIf="registerFail" class="alert alert-danger">
-      User already exists!
+      Потребителът вече съществува!
   </div>
 </div>

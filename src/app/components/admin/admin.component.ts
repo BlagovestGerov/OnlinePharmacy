@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
   public model : CategoryModel;
   // public deleteCategorySuccess : boolean;
   public deleteCategoryFail : boolean;
+  public deleteCategorySuccess : boolean;
   public titleCategory : string;
   public idCategory : string; 
   public addCategorySuccess : boolean;
@@ -43,7 +44,7 @@ export class AdminComponent implements OnInit {
 
 
   deleteCategory (targetId): void{           
-    this.categoryService.deleteCategory(targetId)
+    this.categoryService.deleteThisCategory(targetId)
     .subscribe(
       data => {
         this.successfullDeleteCategory(data);
@@ -55,6 +56,7 @@ export class AdminComponent implements OnInit {
   }
  
   successfullDeleteCategory(data) : void {
+    this.deleteCategorySuccess = true;
 // console.log(this.roleId)
   }
 

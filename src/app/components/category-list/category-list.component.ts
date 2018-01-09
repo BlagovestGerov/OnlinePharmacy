@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { 
+  Component,
+  OnInit,
+  Output,
+  EventEmitter } from '@angular/core';
 
 import { CategoryModel } from '../../core/models/view-models/category';
 
@@ -11,6 +15,8 @@ import { CategoryService } from '../../core/services/category-service';
 })
 export class CategoryListComponent implements OnInit {
 
+  @Output() selection: EventEmitter<any> = new EventEmitter();
+  @Output() category: CategoryModel;
 
   public model : CategoryModel;
   categories: CategoryModel;
@@ -28,7 +34,6 @@ export class CategoryListComponent implements OnInit {
   getCategories(): void{
     this.categoryService.getCategories(this.model)
     .subscribe(categories => this.categories = categories);
-    
  }
 
 }

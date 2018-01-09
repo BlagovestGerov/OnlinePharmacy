@@ -8,9 +8,8 @@ import { AuthenticationService } from './authentication/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-require("angular-background-image");
 
-  title = 'Твоята аптека';
+  title = 'Аптека Ехинацея';
 
   constructor(
     private authService : AuthenticationService

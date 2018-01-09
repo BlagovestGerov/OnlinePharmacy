@@ -1,0 +1,32 @@
+<!-- <div >
+    <div>
+Категория - {{category?.title|uppercase}}
+    </div>
+    
+</div> -->
+
+<!-- {{products|json}} -->
+
+
+    <div class="container">
+        <div class="row">
+                  <div class="col-sm-12">
+                    
+                      <div class="single product">
+                          <h3  class="list-group"
+                          class="list-group-item list-group-item-action"
+                          >Категория - {{category?.title|uppercase}}</h3>
+                          <div *ngFor="let product of products">
+                          <div class="col-md-2 column productbox">
+                                <div>
+                                <img src="http://placehold.it/460x250/4dff4d/ffffff&text=PRODUCT" class="img-responsive">
+                                <div class="producttitle">{{product.name}}</div>
+                                <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">£{{product.price | uppercase}}</div></div>               
+                          </div>
+                      </div>                
+                      </div>
+                          </div>
+                  </div> 
+          </div>
+<button (click)="goBack()">go back</button>
+

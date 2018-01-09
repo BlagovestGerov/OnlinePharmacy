@@ -17,9 +17,6 @@ const categoryUrl =`https://baas.kinvey.com/appdata/${appKey}/categories`;
 
 
 
-// const httpOptions = {
-//     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-//   };  
 
 @Injectable()
 export class CategoryService {
@@ -32,11 +29,17 @@ export class CategoryService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-//  getCategories(): Observable<CategoryModel[]> {
-//    // Todo: send the message _after_ fetching the heroes
-//    this.messageService.add('HeroService: fetched heroes');
-//     return of(Categories);
-//  }
+
+
+    getCategory(categoryModel:CategoryModel, targetId): Observable<CategoryModel>{
+
+      return this.http.get<CategoryModel>(`${categoryUrl}/${targetId}`,
+        {
+          headers: this.createAuthHeaders('Kinvey')
+        }
+      )  
+    }
+
  getCategories (categoryModel:CategoryModel): Observable<CategoryModel> {
     return this.http.get<CategoryModel>(categoryUrl,
       {
@@ -87,7 +90,7 @@ export class CategoryService {
   // }
    
     
-  deleteCategory (targetId:string ): Observable<Object> {
+  deleteThisCategory (targetId:string ): Observable<Object> {
 
     const id = targetId;
     const url = `${categoryUrl}/${id}`;

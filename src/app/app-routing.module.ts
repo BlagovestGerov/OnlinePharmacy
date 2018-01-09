@@ -9,6 +9,8 @@ import { LogoutComponent } from './authentication/logout-component/logout.compon
 import { CategoryComponent } from './components/category/category.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { UsersComponent } from './components/users/users.component';
+import { CategoryDetailsComponent } from './components/category-details/category-details.component';
+
 
 // Guards
 import { AuthGuard } from './guards/auth.guard.service';
@@ -18,7 +20,8 @@ const routes : Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', canActivate: [ AuthGuard ], component: HomeComponent },
   { path: 'register', component: RegisterFormComponent },
-  { path: 'category', component: CategoryComponent },  
+  { path: 'category', pathMatch: 'full', component: CategoryComponent }, 
+  { path: 'category/:id', component: CategoryDetailsComponent },  
   { path: 'login', component: LoginFormComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'contacts', component: ContactsComponent},
