@@ -3,5 +3,6 @@ export class ProductModel {
       public name : string,
       public price : string,
       public categoryName : string,
+      public categoryId : string
     ) { }
   }

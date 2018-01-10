@@ -19,12 +19,17 @@ import { ProductService } from '../../core/services/product-service';
 })
 export class CategoryDetailsComponent implements OnInit {
 
+    @Input() categoryInput: CategoryModel;
+
+
   public category: CategoryModel;
   public categoryModel : CategoryModel;
   public productModel : ProductModel;
   public categoryName : string;
   public categoryId : string;
   public products : ProductModel;
+  public catInput : CategoryModel;
+
   // public targetId : string;
 
   constructor(
@@ -34,33 +39,32 @@ export class CategoryDetailsComponent implements OnInit {
     private location: Location
   ) {  
     this.categoryModel = new CategoryModel("", "");    
-    this.productModel = new ProductModel("", "", "");
+    this.productModel = new ProductModel("", "", "", "");
    }
 
   ngOnInit() {
-   this.getCategory()
-   this.getCategroyProducts();
+   this.getCategoryProducts();
   }
 
-  getCategory(): void {
-     const targetId = this.route.snapshot.paramMap.get('id');
-    this.categoryService.getCategory(this.categoryModel, targetId)
-      .subscribe(
-        data => {
-          this.successGetCategory(data);
-        },
-      )
-  }
+  // getCategory(): void {
+  //    const targetId = this.route.snapshot.paramMap.get('id');
+  //   this.categoryService.getCategory(this.categoryModel, targetId)
+  //     .subscribe(
+  //       data => {
+  //         this.successGetCategory(data);
+  //       },
+  //     )
+  // }
 
-  successGetCategory(data){
-    this.category = data;
-    this.categoryName = data['title']
-    this.categoryId = data['_id']
+  // successGetCategory(data){
+  //   this.category = data;
+  //   this.categoryName = data['title']
+  //   this.categoryId = data['_id']
    
-    console.log(this.categoryId)
-  }
+  //   // console.log(this.categoryId)
+  // }
 
-  getCategroyProducts():void{
+  getCategoryProducts():void{
     this.productService.getAllProducts(this.productModel)
     .subscribe(
       data => {
@@ -70,8 +74,9 @@ export class CategoryDetailsComponent implements OnInit {
   }
 
   successGetProducts(data){
-    this.products = data.filter((data: ProductModel) => data.categoryName === this.categoryName);
-    console.log(this.products)
+    const targetId = this.route.snapshot.paramMap.get('id');    
+    this.products = data.filter((data: ProductModel) => data.categoryId === targetId);
+    // console.log(this.products)
   }
   
   goBack(): void {

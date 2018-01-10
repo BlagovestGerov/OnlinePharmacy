@@ -18,7 +18,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService : ProductService
   ) { 
-    this.model = new ProductModel("", "", "")
+    this.model = new ProductModel("", "", "", "")
   }
 
   ngOnInit() {

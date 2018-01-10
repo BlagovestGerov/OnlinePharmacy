@@ -15,8 +15,10 @@ import { CategoryService } from '../../core/services/category-service';
 })
 export class CategoryListComponent implements OnInit {
 
+  // public category: CategoryModel;
+
   @Output() selection: EventEmitter<any> = new EventEmitter();
-  @Output() category: CategoryModel;
+  // @Output() category: CategoryModel;
 
   public model : CategoryModel;
   categories: CategoryModel;
@@ -36,4 +38,8 @@ export class CategoryListComponent implements OnInit {
     .subscribe(categories => this.categories = categories);
  }
 
+ sendData(categoryInput){
+  this.selection.emit(categoryInput)
+   console.log(categoryInput)
+ }
 }
