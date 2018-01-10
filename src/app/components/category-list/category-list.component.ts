@@ -18,7 +18,7 @@ export class CategoryListComponent implements OnInit {
   // public category: CategoryModel;
 
   @Output() selection: EventEmitter<any> = new EventEmitter();
-  // @Output() category: CategoryModel;
+  @Output() category: CategoryModel;
 
   public model : CategoryModel;
   categories: CategoryModel;

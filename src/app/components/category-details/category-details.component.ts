@@ -19,10 +19,10 @@ import { ProductService } from '../../core/services/product-service';
 })
 export class CategoryDetailsComponent implements OnInit {
 
-    @Input() categoryInput: CategoryModel;
+    @Input() category: CategoryModel;
 
 
-  public category: CategoryModel;
+  // public category: CategoryModel;
   public categoryModel : CategoryModel;
   public productModel : ProductModel;
   public categoryName : string;
